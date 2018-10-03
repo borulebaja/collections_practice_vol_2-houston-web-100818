@@ -25,16 +25,13 @@ def count_elements(array)
 end
 
 def merge_data(keys, data)
-  keys.each do |object|
-    matchingProperty = object[:first_name]
-    puts object
-    other_object = data[0][matchingProperty]
-    
-    other_object.each do |property, value|
-      object[property] = value
+  keys.each do |name_hash|
+    data.each do |hash|
+      name_hash.merge!(hash[name_hash[:first_name]])
     end
   end
 end
+
 
 def find_cool(cool)
   if cool[1].values[1] == "cool"
