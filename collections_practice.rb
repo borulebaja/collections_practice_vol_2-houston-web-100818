@@ -7,7 +7,7 @@ def contain_a(array)
 end 
 
 def first_wa(array)
-  array.find {|word| word.to_s.start_with?("wa")}
+  array.find {|word| word.to_s.start_with?("wa")} # .to_s converts word into string 
 end
 
 def remove_non_strings(array)
