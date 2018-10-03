@@ -41,18 +41,16 @@ end
 
 
 def organize_schools(schools)
-  array = []
-  schools.values.to_a.each do |value|
-    array << value.values
-  end
-  school_array = array.flatten.uniq.sort
+  by_location = {}
+    schools.each do |school, location_hash|
+      location_hash.each do |symbol, location|
+        if by_location[location] == nil
+          by_location[location] = [school]
+        else
+          by_location[location] << school
+        end
+      end
+    end
+    by_location
+end 
 
-  h1 = {schools.to_a[0][1].values[0] => [schools.to_a[0][0], schools.to_a[1][0], schools.to_a[4][0]]}
-  h2 = {school_array[0] => [schools.to_a[3][0]]}
-  h3 = {school_array[2] => [schools.to_a[2][0], schools.to_a[5][0]]}
-  h = {}
-  h.merge!(h1)
-  h.merge!(h2)
-  h.merge!(h3)
-  h
-end
