@@ -16,9 +16,12 @@ def remove_non_strings(array)
 end
 
 def count_elements(array)
-  array.group_by(&:itself).map do |key, value|
-     key.merge({:count => value.length})
-  end
+  counts = Hash.new(0)
+  array.collect {|element| counts[element]+=1 }
+    counts.collect do |hash, number|
+      hash[:count] = number
+    end
+  counts.keys
 end
 
 def merge_data(keys, data)
