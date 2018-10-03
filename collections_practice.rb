@@ -47,7 +47,7 @@ def organize_schools(schools)
         if by_location[location] == nil
           by_location[location] = [school]
         else
-          by_location[location] << school 
+          by_location[location] << school  #adding items to array
         end
       end
     end
